@@ -1,10 +1,9 @@
-# Chandan's portfolio using Spring Thymeleaf and JAVA
+# Hemant's portfolio using Spring Thymeleaf and JAVA
 
 This portfolio is created using JAVA, SpringBoot and Thymeleaf. 
 
-Portfolio Link - https://portfolio-with-spring.onrender.com
+Portfolio Link - #
 
-https://portfolio-with-spring-production.up.railway.app/
 
 ### You can dynamically change the following content in the portfolio 
 

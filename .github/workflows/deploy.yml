@@ -1,0 +1,51 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master  # or the branch you want to deploy from
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'adopt'  # Use 'adopt' or 'temurin', etc., based on your preference
+
+      - name: Build with Maven
+        run: mvn clean package -DskipTests
+
+      - name: Create gh-pages branch
+        run: |
+          git config --global user.name "chandan13tiwari"
+          git config --global user.email "chandan13tiwaris@gmail.com"
+          git checkout --orphan gh-pages
+          git rm -rf .
+
+      - name: Copy static files
+        run: |
+          mkdir static
+          cp -r target/*.jar static/
+          # If you have a specific directory for Thymeleaf templates,
+          # adjust the command accordingly
+          cp -r target/classes/static/* static/
+          cp -r target/classes/templates/index.html static/
+
+      - name: Commit and push to gh-pages
+        run: |
+          git add static/*
+          git commit -m "Deploy to GitHub Pages"
+          git push --force --set-upstream origin gh-pages
+
+      - name: Clean up
+        run: |
+          git checkout master
+          git branch -D gh-pages
+

@@ -15,7 +15,7 @@ Portfolio Link - #
 ###### If you want to update the resume
 
 1. I would prefer to use _*.pdf_ as extension to Resume document
-2. Rename you resume doc to 'chandan-resume.pdf'
+2. Rename you resume doc to 'Hemant-resume.pdf'
 
 ###### If you want to update any links
 

@@ -21,7 +21,7 @@ public final class Constants {
   public static final String ECOMMERCE = "Ecommerce";
   public static final String SCM_GITHUB_URL = "https://github.com/hailkingragnar/SCM";
   public static final String SCM_LIVE_DEMO_URL = "https://librbary.github.io/SCM/";
-  public static final String PHONE_VALIDATION_GITHUB_URL = "https://github.com/hailkingragnar/secure-file-upload";
+  public static final String PHONE_VALIDATION_GITHUB_URL = "https://github.com/hailkingragnar/Phone-Validation-and-Leads-Management";
   public static final String PHONE_VALIDATION_LIVE_DEMO_URL = "https://github.com/hailkingragnar/secure-file-upload";
   public static final String ECOMMERCE_GITHUB_URL = "https://github.com/hailkingragnar/GEHU_Online_Project";
   public static final String ECOMMERCE_LIVE_DEMO_URL = "https://github.com/hailkingragnar/GEHU_Online_Project";

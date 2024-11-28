@@ -1,16 +1,25 @@
-FROM ubuntu
+# Start with a lightweight base image
+FROM ubuntu:20.04
 
-RUN apt-get update -y
-RUN apt-get upgrade -y
-RUN apt install -y openjdk-17-jdk
-RUN apt install -y maven
+# Update package list and install dependencies
+RUN apt-get update -y && apt-get upgrade -y && \
+    apt-get install -y openjdk-17-jdk maven && \
+    apt-get clean
 
-RUN mkdir portfolio-with-spring
-WORKDIR portfolio-with-spring/
+# Create a working directory
+WORKDIR /app
 
+# Copy all files to the container
 COPY . .
-RUN mvn clean install
 
-RUN cd target/ && cp portfolio-with-spring-0.0.1-SNAPSHOT.jar /portfolio-with-spring
+# Build the application
+RUN mvn clean package
 
-ENTRYPOINT [ "java", "-jar", "portfolio-with-spring-0.0.1-SNAPSHOT.jar" ]
+# Move the generated JAR file to the working directory
+RUN mv target/portfolio-with-spring-0.0.1-SNAPSHOT.jar /app/portfolio-with-spring.jar
+
+# Expose the port your application runs on
+EXPOSE 8080
+
+# Define the command to run the application
+ENTRYPOINT ["java", "-jar", "/app/portfolio-with-spring.jar"]
